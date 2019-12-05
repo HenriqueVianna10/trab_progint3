@@ -53,7 +53,7 @@
         <select class="form-control" name="funcionarios_idfuncionarios">
         <option></option>
         <?php
-          $query = "SELECT idfuncionarios FROM funcionarios";
+          $query = "SELECT idfuncionarios, nome FROM funcionarios";
           $resultado = mysqli_query($conexao, $query);
           while($row = mysqli_fetch_array($resultado)){
               echo '<option value="'.$row['idfuncionarios'].'">'.$row['nome'].'</option>';

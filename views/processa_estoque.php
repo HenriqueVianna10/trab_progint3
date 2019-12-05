@@ -12,5 +12,4 @@ $query = "INSERT INTO estoques (livros_idlivros, funcionarios_idfuncionarios, qu
 VALUES ('$livros_idlivros','$funcionarios_idfuncionarios','$quant_total','$quant_recebida','$dataatualizacao')";
 
 mysqli_query($conexao, $query);
-
-echo "inserido";
+header('location:../index.php?pagina=estoques');

@@ -19,8 +19,8 @@
 				<a href="?pagina=estoques">Estoques</a>
 				<a href="?pagina=funcionarios">Funcionários</a>
 				<a href="?pagina=fornecedores">Fornecedores</a>
-				<a href="?pagina=filtrafornecedor">Filtra fornecedores</a>
-				<a href="?pagina=filtrafuncionario">Filtra Funcionario</a>
+				<a href="?pagina=filtrafornecedor">Consulta</a>
+				
 				
 				
 			</div>

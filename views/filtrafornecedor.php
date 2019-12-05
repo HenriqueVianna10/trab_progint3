@@ -1,34 +1,46 @@
 
 
-<table class="table tables table-hover table-striped" style="border:1px solid #ccc; width: 100%">
-	<form action="filtrafornecedor.php" method="get">
-		<input type="text" name="idFornecedor">
-		<input type="submit" hidden>
-	</form>
-	<thead>
-		<tr>
-			<th>Id Fornecedor</th>
-			<th>Id Livro</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php
+<center>
+<table border="2" bordercolor="blue">
+<tr><td align='center'>
+<form action="pesq.php" method="get">
+Nome Livro: <input type="text" name="nome">
+<input type="hidden" name="id" value="1">
+&nbsp;&nbsp;<input type="submit" value="Pesquisar Nome">
+</form>
 
-		if ($_GET){
-			
-			$idFornecedor = $_GET['idFornecedor'];
-			include './db.php';
-			$query = "SELECT a.titulo, b.nome from livros a, fornecedores b where b.idfornecedor = a.fornecedores_idfornecedores
-				and b.idfornecedor = '$idFornecedor'";
-			$filtrafornecedor1 = mysqli_query($conexao, $query);
+<form action="pesq.php" method="get">
+Telefone: <input type="text" name="fone">
+<input type="hidden" name="id" value="2">
+&nbsp;&nbsp;<input type="submit" value="Pesquisar Telefone">
+</form>
 
-			while($linha = mysqli_fetch_array($filtrafornecedor1)){
-			echo '<tr><td>'.$linha['idfornecedor'].'</td>';
-			echo '<td>'.$linha['a.titulo'].'</td>';
-			echo '<td>'.$linha['b.nome'].'</td>';
-			}
-		}
-		?>
-	</tbody>
+<form action="pesq.php" method="get">
+Nascimento: <input type="text" name="nasc" placeholder="dd-mm-aaaa">
+<input type="hidden" name="id" value="3">
+&nbsp;&nbsp;<input type="submit" value="Pesquisar Nascimento">
+</form>
 
+<form action="pesq.php" method="get">
+Departamento: <select name="dep">
+<option value=""></option>
+<?php
+require("conecta.inc.php");
+$ok = conecta_bd() or die ("Não é possível conectar-se ao servidor.");
+$resultado=mysqli_query($ok, "Select * from departamento order by nomed") or die ("Não é possível consultar departamentos.");
+while ($linha=mysqli_fetch_array($resultado))
+{
+   $CodigoD=$linha["codigod"];
+   $NomeD=$linha["nomed"];
+   print("<option value='$CodigoD'>$NomeD</option>");
+}
+?>
+</select>
+<input type="hidden" name="id" value="4">
+&nbsp;&nbsp;<input type="submit" value="Pesquisar Departamento">
+</form>
+</td></tr>
 </table>
+</center>
+<hr>
+<p><a href="mostraf.php">Mostrar Funcionários</a>

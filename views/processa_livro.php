@@ -12,5 +12,5 @@ $query = "INSERT INTO livros(titulo, fornecedores_idfornecedores, anopublicacao,
 VALUES ('$titulo','$fornecedores','$anopublicacao','$edicao','$editora')";
 
 mysqli_query($conexao, $query);
+header('location:../index.php?pagina=livros');
 
-echo "inserido";

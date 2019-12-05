@@ -9,4 +9,4 @@ $query = "INSERT INTO funcionarios (nome, datacontratacao)
 VALUES ('$nome','$datacontratacao')";
 
 mysqli_query($conexao, $query);
-echo "inserido";
+header('location:../index.php?pagina=funcionarios');

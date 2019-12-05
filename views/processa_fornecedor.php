@@ -11,4 +11,5 @@ $query = "INSERT INTO fornecedores (nome, endereco, telefone, cidade)
 VALUES ('$nome','$endereco','$telefone','$cidade')";
 
 mysqli_query($conexao, $query);
-echo "inserido";
+header('location:../index.php?pagina=fornecedores');
+
